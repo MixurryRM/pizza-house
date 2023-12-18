@@ -69,11 +69,16 @@
                 <div class="title m-b-md">
                     Pizza List
                 </div>
+
+                @if ($pizzas['price'] > 50)
+                    <h1>This pizza is expansive</h1>
+                @else
                 @foreach ($pizzas as $pizza)
                 <ul>
                     <li>{{$pizza}}</li>
                 </ul>
                 @endforeach
+                @endif
             </div>
         </div>
     </body>

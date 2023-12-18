@@ -6,7 +6,7 @@ Route::get('/', function () {
     $pizzas = [
         'name' => 'Pizzas',
         'type' => 'Chill Taste',
-        'price' => 100
+        'price' => 10
     ];
     return view('pizzas',compact('pizzas'));
 });
