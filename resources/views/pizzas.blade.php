@@ -69,6 +69,11 @@
                 <div class="title m-b-md">
                     Pizza List
                 </div>
+                @foreach ($pizzas as $pizza)
+                <ul>
+                    <li>{{$pizza}}</li>
+                </ul>
+                @endforeach
             </div>
         </div>
     </body>

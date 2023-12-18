@@ -3,5 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('pizzas');
+    $pizzas = [
+        'name' => 'Pizzas',
+        'type' => 'Chill Taste',
+        'price' => 100
+    ];
+    return view('pizzas',compact('pizzas'));
 });
