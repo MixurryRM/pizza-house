@@ -14,6 +14,9 @@ Route::get('/pizzas',[PizzaController::class,'index']);
 //show create form
 ROute::get('/pizzas/create',[PizzaController::class,'create']);
 
+//store pizza data
+Route::post('/pizzas',[PizzaController::class,'store']);
+
 //show sigle pizza
 Route::get('/pizzas/{id}',[PizzaController::class,'show']);
 

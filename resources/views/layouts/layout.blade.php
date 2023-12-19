@@ -7,6 +7,11 @@
 
     <title>Laravel</title>
 
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+    <!-- Bootstrap CSS-->
+    <link href="{{ asset('admin/vendor/bootstrap-4.1/bootstrap.min.css') }}" rel="stylesheet" media="all">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
@@ -17,8 +22,7 @@
 <body>
     @yield('content')
 
-     <footer
-        <p>Copyright &copy; 2022, All Rights reserved</p>
+    <footer <p>Copyright &copy; 2022, All Rights reserved</p>
     </footer>
 </body>
 
