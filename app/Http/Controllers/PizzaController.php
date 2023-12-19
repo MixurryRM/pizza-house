@@ -13,11 +13,21 @@ class PizzaController extends Controller
         $price = request('price');
 
         $pizzas = Pizzas::orderBy('id','desc')->get();
-        return view('pizzas',compact('pizzas'));
+        return view('pizzas.index',compact('pizzas'));
     }
 
     //show single pizza
     public function show($id){
-        return view('details',compact('id'));
+        $pizzas = Pizzas::where('id',$id)->first();
+        if ($pizzas) {
+            return view('pizzas.show',compact('pizzas'));
+        } else {
+             abort('404');
+        };
+    }
+
+    //show create form
+    public function create(){
+        return view('pizzas.create');
     }
 }
