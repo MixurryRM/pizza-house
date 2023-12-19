@@ -1,12 +1,12 @@
 <?php
 
+use App\Http\Controllers\PizzaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $pizzas = [
-        'name' => 'Pizzas',
-        'type' => 'Chill Taste',
-        'price' => 10
-    ];
-    return view('pizzas',compact('pizzas'));
+    return view('welcome');
 });
+
+Route::get('/pizzas',[PizzaController::class,'index']);
+
+Route::get('/pizzas/{id}',[PizzaController::class,'show']);
