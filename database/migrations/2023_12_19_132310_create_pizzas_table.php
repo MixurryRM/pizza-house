@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('pizzas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()
-            ->onDelete('cascade');
             $table->string('type');
             $table->string('base');
             $table->string('name');

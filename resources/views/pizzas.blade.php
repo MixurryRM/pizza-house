@@ -7,15 +7,11 @@
                 The East's Best Pizzas
             </div>
 
-            @if ($pizzas['price'] > 50)
-                <h1>This pizza is expensive</h1>
-            @else
-                @foreach ($pizzas as $pizza)
-                    <ul>
-                        <li>{{$pizza}}</li>
-                    </ul>
-                @endforeach
-            @endif
+             @foreach ($pizzas as $pizza)
+                 <div>
+                    {{$pizza->name}} - {{$pizza->type}} - {{$pizza->base}}
+                 </div>
+             @endforeach
         </div>
     </div>
 @endsection

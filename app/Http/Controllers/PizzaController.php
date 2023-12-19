@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pizzas;
 use Illuminate\Http\Request;
 
 class PizzaController extends Controller
@@ -11,11 +12,7 @@ class PizzaController extends Controller
         $name = request('name');
         $price = request('price');
 
-        $pizzas = [
-            'name' => $name,
-            'type' => 'Chill Taste',
-            'price' => $price
-        ];
+        $pizzas = Pizzas::orderBy('id','desc')->get();
         return view('pizzas',compact('pizzas'));
     }
 
