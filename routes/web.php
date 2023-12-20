@@ -17,6 +17,9 @@ ROute::get('/pizzas/create',[PizzaController::class,'create']);
 //store pizza data
 Route::post('/pizzas',[PizzaController::class,'store']);
 
+//destory pizza data
+Route::get('/pizzas/{id}/delete',[PizzaController::class,'delete']);
+
 //show sigle pizza
 Route::get('/pizzas/{id}',[PizzaController::class,'show']);
 

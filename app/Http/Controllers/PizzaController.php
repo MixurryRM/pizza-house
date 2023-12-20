@@ -43,4 +43,10 @@ class PizzaController extends Controller
         Pizzas::create($pizzas);
         return redirect('/')->with(['message' => 'Thanks for your order']);
     }
+
+    //destroying pizza data
+    public function delete($id) {
+        $pizzas = Pizzas::where('id',$id)->delete();
+        return redirect('/pizzas')->with(['complete' => 'Order complete...']);
+    }
 }
