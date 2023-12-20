@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Pizzas extends Model
 {
     use HasFactory;
+
+    protected $casts = [
+        'toppings' => 'array'
+    ];
 }

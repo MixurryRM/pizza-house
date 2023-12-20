@@ -37,7 +37,9 @@ class PizzaController extends Controller
             'name' => $request->name,
             'type' => $request->type,
             'base' => $request->base,
+            'toppings' => $request->toppings
         ];
+        // dd($pizzas);
         Pizzas::create($pizzas);
         return redirect('/')->with(['message' => 'Thanks for your order']);
     }
