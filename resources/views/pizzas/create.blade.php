@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 @section('content')
     <div class="wrapper create-pizza">
-        <a href="#" onclick="history.back(); return false;" class="text-decoration-none text-dark"><i
-                class="fa-solid fa-arrow-left" style="color: #8a65f7;"></i></a>
+        <a href="#" onclick="history.back(); return false;" class="text-decoration-none pizza-color"><i
+                class="fa-solid fa-arrow-left"></i></a>
         <h1>Create a New Pizza</h1>
         <form action="/pizzas" method="POST">
             @csrf

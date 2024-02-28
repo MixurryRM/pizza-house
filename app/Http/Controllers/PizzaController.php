@@ -47,6 +47,6 @@ class PizzaController extends Controller
     //destroying pizza data
     public function delete($id) {
         $pizzas = Pizzas::where('id',$id)->delete();
-        return redirect('/pizzas')->with(['complete' => 'Order complete...']);
+        return redirect('/pizzas')->with(['order' => 'Order complete ...']);
     }
 }
