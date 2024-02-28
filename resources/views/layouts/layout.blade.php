@@ -21,13 +21,36 @@
     {{-- fontawesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    @vite(['resources/sass/app.scss','public/main.css','resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'public/main.css', 'resources/js/app.js'])
 </head>
 
 <body>
+    <ul class="nav justify-content-end pt-3 me-5">
+        @auth
+            <li class="nav-item">
+                <a class="nav-link active pizza-color" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <form class="inline" action="auth/logout" method="POST">
+                    @csrf
+                    <button type="submit" class="btn w-100 text-light" style="background-color: #5e2195">
+                        Logout
+                    </button>
+                </form>
+            </li>
+        @else
+            <li class="nav-item">
+                <a class="nav-link pizza-color" href="{{ url('auth/login') }}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pizza-color" href="{{ url('auth/register') }}">Register</a>
+            </li>
+        @endauth
+    </ul>
     @yield('content')
 
-    <footer><p>Copyright &copy; 2022, All Rights reserved</p>
+    <footer>
+        <p>Copyright &copy; 2022, All Rights reserved</p>
     </footer>
 </body>
 

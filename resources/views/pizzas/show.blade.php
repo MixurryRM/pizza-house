@@ -10,9 +10,9 @@
                 <li>{{ $topping }}</li>
             @endforeach
         </ul>
-        <a href="/pizzas/{{ $pizzas->id }}/delete">
+        <a href="{{ route('pizzas.destory' , $pizzas->id) }}">
             <button type="submit" class="btn w-25 text-light" style="background-color: #5e2195">Complete Order</button>
         </a>
     </div>
-    <a href="/pizzas" class="back text-decoration-none"><- Back to all pizzas</a>
-@endsection
+    <a href="{{ url('/') }}" class="back text-decoration-none"><- Back to all pizzas</a>
+        @endsection

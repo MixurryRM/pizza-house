@@ -10,13 +10,13 @@ Route::get('/', function () {
 });
 
 Route::prefix('pizzas')->group(function () {
-    Route::get('/', [PizzaController::class, 'index'])->middleware('auth');
-    Route::get('/create', [PizzaController::class, 'create']);
-    Route::post('/', [PizzaController::class, 'store']);
+    Route::get('/', [PizzaController::class, 'index'])->name('pizzas.index')->middleware('auth');
+    Route::get('/create', [PizzaController::class, 'create'])->name('pizzas.create');
+    Route::post('/', [PizzaController::class, 'store'])->name('pizzas.store');
 
     Route::middleware(['auth'])->group(function () {
-        Route::get('/{id}/delete', [PizzaController::class, 'delete']);
-        Route::get('/{id}', [PizzaController::class, 'show']);
+        Route::get('/{id}/delete', [PizzaController::class, 'delete'])->name('pizzas.destory');
+        Route::get('/{id}', [PizzaController::class, 'show'])->name('pizzas.show');
     });
 });
 

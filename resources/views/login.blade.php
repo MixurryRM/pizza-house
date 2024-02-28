@@ -5,8 +5,8 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="login-container">
-                    <a href="#" onclick="history.back(); return false;" class="text-decoration-none text-dark"><i
-                            class="fa-solid fa-arrow-left" style="color: #8a65f7;"></i></a>
+                    <a href="/" class="text-decoration-none text-dark"><i class="fa-solid fa-arrow-left"
+                            style="color: #8a65f7;"></i></a>
                     <h2 class="text-center mb-4">Pizza Login</h2>
                     <form action="{{ route('login') }}" method="POST">
                         @csrf

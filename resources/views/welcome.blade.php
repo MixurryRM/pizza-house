@@ -2,26 +2,6 @@
 
 @section('content')
     <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
-            <div class="top-right links">
-                @auth
-                    <div class="me-5">
-                        <form class="inline" action="auth/logout" method="POST">
-                            @csrf
-                            <button type="submit" class="btn w-100 text-light" style="background-color: #5e2195">
-                                Logout
-                            </button>
-                        </form>
-                    </div>
-                @else
-                    <a href="{{ url('auth/login') }}" class="pizza-color">Login</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ url('auth/register') }}" class="pizza-color">Register</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
         <div class="content">
             @if (session('login'))
                 <div x-data='{show : true}' x-init='setTimeout(() => show = false, 3000)' x-show='show'
@@ -61,9 +41,9 @@
             @endif
 
             @if (auth()->user() != null)
-                <a href="{{ url('/pizzas') }}" class="pizza-color text-decoration-none me-3">Manage Order</a>
+                <a href="{{ route('pizzas.index') }}" class="pizza-color text-decoration-none me-3">Manage Order</a>
             @else
-                <a href="/pizzas/create" class="pizza-color text-decoration-none me-3">Order a pizza ...</a>
+                <a href="{{ route('pizzas.create') }}" class="pizza-color text-decoration-none me-3">Order a pizza ...</a>
             @endif
 
         </div>
