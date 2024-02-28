@@ -29,7 +29,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/');
+            return redirect('/')->with('login','You are now login!');;
         }
 
         return back()->withErrors([
@@ -37,7 +37,8 @@ class AuthController extends Controller
         ])->onlyInput('email');
     }
 
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         auth()->logout();
 
         $request->session()->invalidate();
@@ -46,7 +47,8 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         $formField = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
@@ -59,6 +61,6 @@ class AuthController extends Controller
 
         auth()->login($user);
 
-        return redirect('/');
+        return redirect('/')->with('register','You have been registered & logged in!');
     }
 }
