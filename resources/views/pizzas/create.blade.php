@@ -3,33 +3,24 @@
     <div class="wrapper create-pizza">
         <a href="#" onclick="history.back(); return false;" class="text-decoration-none pizza-color"><i
                 class="fa-solid fa-arrow-left"></i></a>
-        <h1>Create a New Pizza</h1>
-        <form action="/pizzas" method="POST">
+        <h1>Pizza Various</h1>
+        <form action="{{ route('various.type') }}" method="POST">
             @csrf
-            <label for="name">Your name:</label>
-            <input type="text" name="name" id="name" required>
-            <label for="type">Choose type of pizza:</label>
-            <select name="type" id="type">
-                <option value="margarita">Margarita</option>
-                <option value="hawaiian">Hawaiian</option>
-                <option value="veg supreme">Veg Supreme</option>
-                <option value="volcano">Volcano</option>
-            </select>
-            <label for="base">Choose crust:</label>
-            <select name="base" id="base">
-                <option value="thick">Thick Pepper</option>
-                <option value="thin & crispy">Thin & Crispy</option>
-                <option value="cheese crust">Cheese Crust</option>
-                <option value="garlic crust">Garlic Holymo</option>
-            </select>
-            <fieldset>
-                <label>Extra toppings</label> <br>
-                <input type="checkbox" name="toppings[]" value="mushrooms"> Mushrooms <br>
-                <input type="checkbox" name="toppings[]" value="peppers"> Peppers <br>
-                <input type="checkbox" name="toppings[]" value="garlic"> Garlic <br>
-                <input type="checkbox" name="toppings[]" value="olives"> Olives <br>
-            </fieldset>
-            <input type="submit" value="Order Pizza">
+            <label for="name">Type of pizza:</label>
+            <input type="text" name="type" id="type" required>
+            <input type="submit" class="ms-2" style="width:50px,height:50px" value="Add">
+        </form>
+        <form action="{{ route('various.base') }}" method="POST">
+            @csrf
+            <label for="name">Type of Base:</label>
+            <input type="text" name="base" id="base" required>
+            <input type="submit" class="ms-2" style="width:50px,height:50px" value="Add">
+        </form>
+        <form action="{{ route('various.topping') }}" method="POST">
+            @csrf
+            <label for="name">Type of Topping:</label>
+            <input type="text" name="topping" id="topping" required>
+            <input type="submit" class="ms-2" style="width:50px,height:50px" value="Add">
         </form>
     </div>
 @endsection

@@ -2,11 +2,14 @@
 @section('content')
     <div class="wrapper pizza-index">
         @if (session('order'))
-                <div x-data='{show : true}' x-init='setTimeout(() => show = false, 3000)' x-show='show'
+                <div x-data='{show : true}' x-init='setTimeout(() => show = false, 2000)' x-show='show'
                     class="fixed top-0 left-1/2 transform -translate-x-1/2 bg-laravel text-white px-28 py-3">
-                    <p class=" text-warning">
-                        {{ session('order') }}
-                    </p>
+                    <div class="alert alert-primary d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+                        <div>
+                            {{ session('order') }}
+                        </div>
+                      </div>
                 </div>
         @endif
         <h1>Pizza Orders</h1>

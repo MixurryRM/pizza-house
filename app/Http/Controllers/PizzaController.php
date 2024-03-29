@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Base;
 use App\Models\Pizzas;
+use App\Models\Topping;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class PizzaController extends Controller
@@ -26,9 +29,12 @@ class PizzaController extends Controller
         };
     }
 
-    //show create form
-    public function create(){
-        return view('pizzas.create');
+    //show order form
+    public function order(){
+        $types = Type::all();
+        $bases = Base::all();
+        $toppings = Topping::all();
+        return view('pizzas.order',compact('types','bases','toppings'));
     }
 
     //store pizza data
@@ -39,7 +45,6 @@ class PizzaController extends Controller
             'base' => $request->base,
             'toppings' => $request->toppings
         ];
-        // dd($pizzas);
         Pizzas::create($pizzas);
         return redirect('/')->with(['message' => 'Thanks for your order']);
     }

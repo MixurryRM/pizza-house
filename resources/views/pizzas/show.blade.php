@@ -14,5 +14,5 @@
             <button type="submit" class="btn w-25 text-light" style="background-color: #5e2195">Complete Order</button>
         </a>
     </div>
-    <a href="{{ url('/') }}" class="back text-decoration-none"><- Back to all pizzas</a>
+    <a href="{{ route('pizzas.index') }}" class="back text-decoration-none"><- Back to all pizzas</a>
         @endsection
