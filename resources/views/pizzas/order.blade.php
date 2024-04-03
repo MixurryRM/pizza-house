@@ -10,7 +10,6 @@
             @csrf
             <label for="name">Your name:</label>
             <input type="hidden" name="name" id="name" value="{{ Auth::user()->name }}">
-
             <input type="text" value="{{ Auth::user()->name }}" disabled>
 
             <label for="type">Choose type of pizza:</label>
@@ -28,12 +27,13 @@
             </select>
 
             <fieldset>
-                <label>Extra toppings</label> <br>
+                <label>Extra toppings</label>
                 @foreach ($toppings as $topping)
-                <input type="checkbox" name="toppings[]" value="{{ $topping->name }}"> {{ ucfirst($topping->name) }} <br>
+                    <input type="checkbox" name="toppings[]" value="{{ $topping->name }}" required> {{ ucfirst($topping->name) }}
+                    <br>
                 @endforeach
             </fieldset>
-            <input type="submit" value="Order Pizza">
+            <input type="submit" class="btn w-125 text-light" style="background-color: #5e2195" value="Order Pizza">
         </form>
     </div>
 @endsection

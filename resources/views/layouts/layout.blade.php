@@ -32,10 +32,13 @@
                     <a class="pizza-color text-decoration-none" href="/"><i class="fa-solid fa-house"></i></a>
                 </li>
                 <li class="nav-item mt-2 me-5">
+                    <a class="pizza-color text-decoration-none" href="{{ route('reviews.index') }}"><i class="fa-solid fa-headset"></i></a>
+                </li>
+                <li class="nav-item mt-2 me-5">
                     <a class="pizza-color text-decoration-none" href="#">{{ Auth::user()->name }}</a>
                 </li>
                 <li class="nav-item">
-                    <form class="inline" action="auth/logout" method="POST">
+                    <form class="inline" action="{{ route('auth.logout') }}" method="POST">
                         @csrf
                         <button type="submit" class="btn w-100 text-light" style="background-color: #5e2195">
                             Logout
@@ -74,7 +77,7 @@
                             class="fa-solid fa-users"></i></a>
                 </li>
                 <li class="nav-item mt-2 me-5">
-                    <a class="pizza-color text-decoration-none" href="/"><i class="fa-solid fa-headset"></i></a>
+                    <a class="pizza-color text-decoration-none" href="{{ route('reviews.list') }}"><i class="fa-solid fa-headset"></i></a>
                 </li>
                 <li class="nav-item mt-2 me-5">
                     <a class="pizza-color text-decoration-none" href="#">{{ Auth::user()->name }}</a>
@@ -90,10 +93,10 @@
             @endif
         @else
             <li class="nav-item mt-2 me-4">
-                <a class="pizza-color" href="{{ url('auth/login') }}">Login</a>
+                <a class="pizza-color" href="{{ route('auth.login') }}">Login</a>
             </li>
             <li class="nav-item mt-2 me-4">
-                <a class="pizza-color" href="{{ url('auth/register') }}">Register</a>
+                <a class="pizza-color" href="{{ route('auth.register') }}">Register</a>
             </li>
         @endauth
     </ul>

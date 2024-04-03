@@ -8,7 +8,7 @@
                     <a href="/" class="text-decoration-none text-dark"><i class="fa-solid fa-arrow-left"
                             style="color: #8a65f7;"></i></a>
                     <h2 class="text-center mb-4">Pizza Login</h2>
-                    <form action="{{ route('login') }}" method="POST">
+                    <form action="{{ route('auth.login') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>

@@ -6,7 +6,7 @@
             <div class="col-md-4">
                 <div class="login-container">
                     <h2 class="text-center mb-4">Pizza Register</h2>
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('auth.register') }}">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>

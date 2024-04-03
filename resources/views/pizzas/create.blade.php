@@ -7,20 +7,20 @@
         <form action="{{ route('various.type') }}" method="POST">
             @csrf
             <label for="name">Type of pizza:</label>
-            <input type="text" name="type" id="type" required>
-            <input type="submit" class="ms-2" style="width:50px,height:50px" value="Add">
+            <input type="text" name="type" id="type" class="form-control w-25 d-inline" required>
+            <button type="submit" class="btn text-white ms-3" style="background-color: #5e2195;">Add</button>
         </form>
         <form action="{{ route('various.base') }}" method="POST">
             @csrf
             <label for="name">Type of Base:</label>
-            <input type="text" name="base" id="base" required>
-            <input type="submit" class="ms-2" style="width:50px,height:50px" value="Add">
+            <input type="text" name="base" id="base" class="form-control w-25 d-inline" required>
+            <button type="submit" class="btn text-white ms-3" style="background-color: #5e2195;">Add</button>
         </form>
         <form action="{{ route('various.topping') }}" method="POST">
             @csrf
             <label for="name">Type of Topping:</label>
-            <input type="text" name="topping" id="topping" required>
-            <input type="submit" class="ms-2" style="width:50px,height:50px" value="Add">
+            <input type="text" name="topping" id="topping" class="form-control w-25 d-inline" required>
+            <button type="submit" class="btn text-white ms-3" style="background-color: #5e2195;">Add</button>
         </form>
     </div>
 @endsection

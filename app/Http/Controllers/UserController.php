@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function index(){
-        $users = User::where('role','user')->paginate(5);
+        $users = User::whereIn('role',['user','staff'])->filter(request(['search']))->paginate(4);
         return view('users.index',compact('users'));
     }
 
@@ -18,4 +18,13 @@ class UserController extends Controller
         ];
         User::where('id',$request->userId)->update($updateRole);
     }
+
+    // public function switchRole(Request $request){
+    //     if ($request->role == 'user') {
+    //         $data = User::where('role','user')->get();
+    //     } else {
+    //         $data = User::where('role','staff')->get();
+    //     }
+    //     return $data;
+    // }
 }

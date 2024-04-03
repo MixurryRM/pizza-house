@@ -102,16 +102,6 @@ footer {
     margin-top: 20px;
 }
 
-.pizza-btn {
-    background: #5e2195;
-    padding: 8px 20px;
-    color: #fff;
-    border: 0;
-    margin-top: 20px;
-}
-
-/* pizza details page */
-
 .pizza-details {
     background: #f7f7f7;
     padding: 20px;
@@ -178,7 +168,7 @@ footer {
         255,
         255,
         0.8
-    ); /* Semi-transparent white background */
+    );
     padding: 20px;
     border-radius: 10px;
     margin-top: 100px;
@@ -206,11 +196,11 @@ footer {
 }
 
 .nav-item a:hover {
-    color: #a682c7; /* Change text color on hover */
+    color: #a682c7;
 }
 
 .nav-item a:hover::after {
-    width: 100%; /* Expand the underline on hover */
+    width: 100%;
 }
 
 .bg-select{

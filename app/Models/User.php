@@ -24,6 +24,14 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function scopeFilter($query, array $filters){
+
+        if($filters['search'] ?? false){
+            $query->where('name','like','%' . request('search') . '%')
+                  ->orWhere('role','like','%'.request('search').'%');
+        }
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
