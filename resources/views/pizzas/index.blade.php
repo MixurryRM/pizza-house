@@ -8,9 +8,7 @@
                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
                         <use xlink:href="#info-fill" />
                     </svg>
-                    <div>
-                        {{ session('order') }}
-                    </div>
+                    <strong>{{ session('order') }}</strong>
                 </div>
             </div>
         @endif
@@ -23,6 +21,9 @@
                     <h4><a href="{{ route('pizzas.show', $pizza->id) }}">{{ $pizza->name }}</a></h4>
                 </div>
             @endforeach
+            <div class="">
+                <p>{{ $pizzas->links() }}</p>
+            </div>
         @else
             <div class="p-3 text-center w-50 form-control text-light mb-5" style="margin: 0 auto;background-color: #974dd8">
                 There is no order yet!

@@ -1,6 +1,19 @@
 @extends('layouts.layout')
 @section('content')
     <div class="wrapper create-pizza">
+        @if (session('message'))
+            <div x-data='{show : true}' x-init='setTimeout(() => show = false, 3000)' x-show='show'
+                class="fixed top-0 left-1/2 transform -translate-x-1/2 bg-laravel text-white px-28 py-3">
+                <div class="alert alert-success d-flex align-items-center" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="14" height="24" role="img" aria-label="Success:">
+                        <use xlink:href="#check-circle-fill" />
+                    </svg>
+                    <div>
+                        {{ session('message') }}
+                    </div>
+                </div>
+            </div>
+        @endif
         <a href="#" onclick="history.back(); return false;" class="text-decoration-none pizza-color"><i
                 class="fa-solid fa-arrow-left"></i></a>
 
@@ -29,7 +42,7 @@
             <fieldset>
                 <label>Extra toppings</label>
                 @foreach ($toppings as $topping)
-                    <input type="checkbox" name="toppings[]" value="{{ $topping->name }}" required> {{ ucfirst($topping->name) }}
+                    <input type="checkbox" name="toppings[]" value="{{ $topping->name }}"> {{ ucfirst($topping->name) }}
                     <br>
                 @endforeach
             </fieldset>

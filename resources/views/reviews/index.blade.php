@@ -15,9 +15,9 @@
                             aria-label="Success:">
                             <use xlink:href="#check-circle-fill" />
                         </svg>
-                        <div>
+                        <strong>
                             {{ session('message') }}
-                        </div>
+                        </strong>
                     </div>
                 </div>
             @endif

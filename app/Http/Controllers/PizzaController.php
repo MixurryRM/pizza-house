@@ -12,10 +12,7 @@ class PizzaController extends Controller
 {
     //show all pizzas
     public function index(){
-        $name = request('name');
-        $price = request('price');
-
-        $pizzas = Pizzas::orderBy('id','desc')->get();
+        $pizzas = Pizzas::orderBy('id','desc')->paginate(5);
         return view('pizzas.index',compact('pizzas'));
     }
 
@@ -39,14 +36,19 @@ class PizzaController extends Controller
 
     //store pizza data
     public function store(Request $request){
+
+        $request->validate([
+            'toppings' => 'required'
+        ]);
+
         $pizzas = [
             'name' => $request->name,
             'type' => $request->type,
             'base' => $request->base,
-            'toppings' => $request->toppings
+            'toppings' => $request->toppings,
         ];
         Pizzas::create($pizzas);
-        return redirect('/')->with(['message' => 'Thanks for your order']);
+        return back()->with(['message' => 'Thanks for your order']);
     }
 
     //destroying pizza data
