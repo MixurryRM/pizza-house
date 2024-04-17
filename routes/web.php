@@ -1,13 +1,11 @@
 <?php
 
-use App\Models\Pizzas;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\VariousController;
-use App\Http\Controllers\FeedbackController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,7 +19,6 @@ Route::prefix('pizzas')->middleware(['auth', 'check.user'])->group(function () {
 
 //Pizzas Ordering Management
 Route::prefix('pizzas')->middleware(['auth', 'check.noneUser'])->group(function () {
-    Route::get('/', [PizzaController::class, 'index'])->name('pizzas.index');
     Route::get('/{id}/delete', [PizzaController::class, 'delete'])->name('pizzas.destory');
     Route::get('/{id}', [PizzaController::class, 'show'])->name('pizzas.show');
 });
@@ -37,9 +34,11 @@ Route::prefix('various')->middleware('auth', 'check.manager')->group(function ()
 //User Management
 Route::prefix('users')->middleware('auth', 'check.manager')->group(function () {
     Route::get('/index', [UserController::class, 'index'])->name('users.index');
+    Route::get('/{id}/delete', [UserController::class, 'delete'])->name('users.delete');
     Route::get('/change/role', [UserController::class, 'changeRole'])->name('users.changeRole');
     Route::get('/switch/role', [UserController::class, 'switchRole'])->name('users.switchRole');
 });
+Route::get('users/pizzaIndex', [UserController::class, 'pizzaIndex'])->name('users.pizzaIndex')->middleware('auth', 'check.noneUser');
 
 //User Reviews
 Route::prefix('reviews')->middleware(['auth', 'check.user'])->group(function () {

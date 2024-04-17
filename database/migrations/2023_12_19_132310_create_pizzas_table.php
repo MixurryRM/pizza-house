@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pizzas', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->string('type');
             $table->string('base');
             $table->string('name');

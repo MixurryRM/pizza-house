@@ -19,10 +19,11 @@
 
         <h1>Order New Pizza</h1>
 
-        <form action="/pizzas" method="POST">
+        <form action="{{ route('pizzas.store') }}" method="POST">
             @csrf
             <label for="name">Your name:</label>
             <input type="hidden" name="name" id="name" value="{{ Auth::user()->name }}">
+            <input type="hidden" name="user_id" id="order_id" value="{{ Auth::user()->id }}">
             <input type="text" value="{{ Auth::user()->name }}" disabled>
 
             <label for="type">Choose type of pizza:</label>

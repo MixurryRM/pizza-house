@@ -7,7 +7,7 @@
             </div>
             <div class="d-flex mt-1">
                 <div class="mt-1">
-                    <h3>Total - {{ $users->total() }}</h3>
+                    <h3>Total - {{ count($users) }}</h3>
                 </div>
                 <div>
                     {{-- <select class="sortingRole w-125 text-center ms-3 form-control">
@@ -34,6 +34,7 @@
                     <th scope="col">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">Role</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="dataList">
@@ -52,13 +53,11 @@
                                     @if ($user->role == 'staff') selected @endif>Staff</option>
                             </select>
                         </td>
+                        <td><a href="{{ route('users.delete' , $user->id) }}"><i class="fa-solid fa-trash fs-5 mt-3 text-danger"></i></a></td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        <div class="mt-5">
-            <p>{{ $users->links() }}</p>
-        </div>
     </div>
 @endsection
 

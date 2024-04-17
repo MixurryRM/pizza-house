@@ -32,7 +32,8 @@
                     <a class="pizza-color text-decoration-none" href="/"><i class="fa-solid fa-house"></i></a>
                 </li>
                 <li class="nav-item mt-2 me-5">
-                    <a class="pizza-color text-decoration-none" href="{{ route('reviews.index') }}"><i class="fa-solid fa-headset"></i></a>
+                    <a class="pizza-color text-decoration-none" href="{{ route('reviews.index') }}"><i
+                            class="fa-solid fa-headset"></i></a>
                 </li>
                 <li class="nav-item mt-2 me-5">
                     <a class="pizza-color text-decoration-none" href="#">{{ Auth::user()->name }}</a>
@@ -50,7 +51,7 @@
                     <a class="pizza-color text-decoration-none" href="/"><i class="fa-solid fa-house"></i></a>
                 </li>
                 <li class="nav-item mt-2 me-5">
-                    <a href="{{ route('pizzas.index') }}" class="pizza-color text-decoration-none"><i
+                    <a href="{{ route('users.pizzaIndex') }}" class="pizza-color text-decoration-none"><i
                             class="fa-solid fa-check-to-slot"></i></a>
                 </li>
                 <li class="nav-item mt-2 me-5">
@@ -69,7 +70,7 @@
                     <a class="pizza-color text-decoration-none" href="/"><i class="fa-solid fa-house"></i></a>
                 </li>
                 <li class="nav-item mt-2 me-5">
-                    <a href="{{ route('pizzas.index') }}" class="pizza-color text-decoration-none"><i
+                    <a href="{{ route('users.pizzaIndex') }}" class="pizza-color text-decoration-none"><i
                             class="fa-solid fa-check-to-slot"></i></a>
                 </li>
                 <li class="nav-item mt-2 me-5">
@@ -77,7 +78,8 @@
                             class="fa-solid fa-users"></i></a>
                 </li>
                 <li class="nav-item mt-2 me-5">
-                    <a class="pizza-color text-decoration-none" href="{{ route('reviews.list') }}"><i class="fa-solid fa-headset"></i></a>
+                    <a class="pizza-color text-decoration-none" href="{{ route('reviews.list') }}"><i
+                            class="fa-solid fa-headset"></i></a>
                 </li>
                 <li class="nav-item mt-2 me-5">
                     <a class="pizza-color text-decoration-none" href="#">{{ Auth::user()->name }}</a>
@@ -118,7 +120,7 @@
     @yield('content')
 
     <footer>
-        <p>Copyright &copy; 2022, All Rights Reserved</p>
+        <p>Copyright &copy; 2024, All Rights Reserved By Mixurry RM</p>
     </footer>
 
     {{-- jquery cdn link --}}
