@@ -23,13 +23,13 @@ class AuthController extends Controller
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required'],
+            'password' => ['required|min:6'],
         ]);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/')->with('login','You are login!');
+            return redirect('/')->with('login', 'You are login!');
         }
 
         return back()->withErrors([
@@ -44,7 +44,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('logout','You are logout!');;
+        return redirect('/')->with('logout', 'You are logout!');;
     }
 
     public function register(Request $request)
@@ -52,7 +52,8 @@ class AuthController extends Controller
         $formField = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed|min:6'
+            'password' => 'required|confirmed|min:6',
+            'password_confirmation' => 'required|min:6|max:10|same:newPassword',
         ]);
 
         $formField['password'] = bcrypt($formField['password']);
@@ -61,6 +62,6 @@ class AuthController extends Controller
 
         auth()->login($user);
 
-        return redirect('/')->with('register','You have been registered & logged in!');
+        return redirect('/')->with('register', 'You have been registered & logged in!');
     }
 }
