@@ -23,7 +23,7 @@ class AuthController extends Controller
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required|min:6'],
+            'password' => ['required'],
         ]);
 
         if (Auth::attempt($credentials)) {
@@ -52,8 +52,9 @@ class AuthController extends Controller
         $formField = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed|min:6',
-            'password_confirmation' => 'required|min:6|max:10|same:newPassword',
+            'phone' => 'required',
+            'location' => 'required',
+            'password' => 'required|max:10|min:6',
         ]);
 
         $formField['password'] = bcrypt($formField['password']);

@@ -35,16 +35,31 @@
                     <a class="pizza-color text-decoration-none" href="{{ route('reviews.index') }}"><i
                             class="fa-solid fa-headset"></i></a>
                 </li>
-                <li class="nav-item mt-2 me-5">
-                    <a class="pizza-color text-decoration-none" href="#">{{ Auth::user()->name }}</a>
-                </li>
-                <li class="nav-item">
-                    <form class="inline" action="{{ route('auth.logout') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn w-100 text-light" style="background-color: #5e2195">
-                            Logout
-                        </button>
-                    </form>
+                <li class="nav-item dropdown">
+                    <div class="dropdown">
+                        <div class="" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            @if (Auth::user()->image == null)
+                                <img src="{{ asset('/image/default.webp') }}" style="width: 35px;height:35px"
+                                    class="me-3 rounded-circle image-float">
+                            @else
+                                <img src="{{ asset('storage/' . Auth::user()->image) }}" style="width: 35px;height: 35px"
+                                    class="me-3 rounded-circle image-float" />
+                            @endif
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('accounts.index') }}">Profile Info</a></li>
+                            <li><a class="dropdown-item" href="{{ route('accounts.editPage') }}">Account Edit</a></li>
+                            <li><a class="dropdown-item" href="{{ route('account.changePasswordPage') }}">Change Password</a></li>
+                            <li class="nav-item p-1">
+                                <form class="inline" action="{{ route('auth.logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn w-100 text-light" style="background-color: #5e2195">
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             @elseif(auth()->user()->role === 'staff')
                 <li class="nav-item mt-2 me-5">
@@ -54,16 +69,31 @@
                     <a href="{{ route('users.pizzaIndex') }}" class="pizza-color text-decoration-none"><i
                             class="fa-solid fa-check-to-slot"></i></a>
                 </li>
-                <li class="nav-item mt-2 me-5">
-                    <a class="pizza-color text-decoration-none" href="#">{{ Auth::user()->name }}</a>
-                </li>
-                <li class="nav-item">
-                    <form class="inline" action="{{ route('auth.logout') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn w-100 text-light" style="background-color: #5e2195">
-                            Logout
-                        </button>
-                    </form>
+                <li class="nav-item dropdown">
+                    <div class="dropdown">
+                        <div class="" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            @if (Auth::user()->image == null)
+                                <img src="{{ asset('/image/default.webp') }}" style="width: 35px;height:35px"
+                                    class="me-3 rounded-circle image-float">
+                            @else
+                                <img src="{{ asset('storage/' . Auth::user()->image) }}" style="width: 35px;height: 35px"
+                                    class="me-3 rounded-circle image-float" />
+                            @endif
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('accounts.index') }}">Profile Info</a></li>
+                            <li><a class="dropdown-item" href="{{ route('accounts.editPage') }}">Account Edit</a></li>
+                            <li><a class="dropdown-item" href="{{ route('account.changePasswordPage') }}">Change Password</a></li>
+                            <li class="nav-item p-1">
+                                <form class="inline" action="{{ route('auth.logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn w-100 text-light" style="background-color: #5e2195">
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             @else
                 <li class="nav-item mt-2 me-5">
@@ -81,16 +111,32 @@
                     <a class="pizza-color text-decoration-none" href="{{ route('reviews.list') }}"><i
                             class="fa-solid fa-headset"></i></a>
                 </li>
-                <li class="nav-item mt-2 me-5">
-                    <a class="pizza-color text-decoration-none" href="#">{{ Auth::user()->name }}</a>
-                </li>
-                <li class="nav-item">
-                    <form class="inline" action="{{ route('auth.logout') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn w-100 text-light" style="background-color: #5e2195">
-                            Logout
-                        </button>
-                    </form>
+                <li class="nav-item dropdown">
+                    <div class="dropdown">
+                        <div class="" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            @if (Auth::user()->image == null)
+                                <img src="{{ asset('/image/default.webp') }}" style="width: 35px;height:35px"
+                                    class="me-3 rounded-circle image-float">
+                            @else
+                                <img src="{{ asset('storage/' . Auth::user()->image) }}" style="width: 35px;height: 35px"
+                                    class="me-3 rounded-circle image-float" />
+                            @endif
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('accounts.index') }}">Profile Info</a></li>
+                            <li><a class="dropdown-item" href="{{ route('accounts.editPage') }}">Account Edit</a></li>
+                            <li><a class="dropdown-item" href="{{ route('account.changePasswordPage') }}">Change Password</a></li>
+                            <li class="nav-item p-1">
+                                <form class="inline" action="{{ route('auth.logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn w-100 text-light"
+                                        style="background-color: #5e2195">
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             @endif
         @else

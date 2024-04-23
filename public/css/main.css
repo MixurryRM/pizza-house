@@ -184,17 +184,6 @@ footer {
     transition: color 0.3s ease;
 }
 
-.nav-item a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #5e2195;
-    transition: width 0.3s ease;
-}
-
 .nav-item a:hover {
     color: #a682c7;
 }

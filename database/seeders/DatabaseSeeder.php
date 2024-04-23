@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Manager',
             'email' => 'manager@gmail.com',
             'role' => 'manager',
+            'phone' => '09968557242',
+            'location' => 'Insein , Yangon',
             'password' => Hash::make('password')
         ]);
     }

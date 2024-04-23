@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
@@ -39,6 +40,15 @@ Route::prefix('users')->middleware('auth', 'check.manager')->group(function () {
     Route::get('/switch/role', [UserController::class, 'switchRole'])->name('users.switchRole');
 });
 Route::get('users/pizzaIndex', [UserController::class, 'pizzaIndex'])->name('users.pizzaIndex')->middleware('auth', 'check.noneUser');
+
+//Account Management
+Route::prefix('accounts')->middleware('auth')->group(function () {
+    Route::get('/index',[AccountController::class,'index'])->name('accounts.index');
+    Route::get('/editPage',[AccountController::class,'editPage'])->name('accounts.editPage');
+    Route::post('{id}/update',[AccountController::class,'update'])->name('accounts.update');
+    Route::get('/changePasswordPage',[AccountController::class,'changePasswordPage'])->name('account.changePasswordPage');
+    Route::post('/{id}/changePassword',[AccountController::class,'changePassword'])->name('account.changePassword');
+});
 
 //User Reviews
 Route::prefix('reviews')->middleware(['auth', 'check.user'])->group(function () {
